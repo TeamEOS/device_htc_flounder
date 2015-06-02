@@ -217,6 +217,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     ro.adb.secure=0
 
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger \
