@@ -40,6 +40,11 @@ TARGET_KERNEL_CONFIG := flounder_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=flounder \
+    BUILD_FINGERPRINT=google/volantis/flounder:5.1.1/LMY47X/1849464:user/release-keys \
+    PRIVATE_BUILD_DESC="flounder-user 5.1.1 LMY47X 1849464 release-keys"
+
 # Inherit some common Eos stuff.
 $(call inherit-product, vendor/eos/config/common_full_tablet_wifionly.mk)
 $(call inherit-product, vendor/eos/config/nfc_enhanced.mk)
