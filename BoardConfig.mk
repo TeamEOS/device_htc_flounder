@@ -150,7 +150,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 MALLOC_IMPL := dlmalloc
 
 # Inline kernel building
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.8/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/htc/flounder
 TARGET_KERNEL_CONFIG := flounder_defconfig
