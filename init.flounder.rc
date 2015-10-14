@@ -1,10 +1,6 @@
 import init.flounder.usb.rc
-#import init.flounder_svelte.rc
 
 on init
-    # Load persistent dm-verity state
-    verity_load_state
-
     start watchdogd
 
     # Support legacy paths
@@ -16,7 +12,6 @@ on init
     mkdir /storage/usbdisk 0700 root root
     symlink /storage/usbdisk /mnt/usbdisk
     symlink /mnt/usbdisk /usbdisk
-    EXPORT SECONDARY_STORAGE /storage/usbdisk
 
 on post-fs
     write /sys/power/gpu_power_on 1
@@ -119,17 +114,6 @@ on boot
 
 on fs
     mount_all /fstab.flounder
-
-    # Adjust parameters for dm-verity devices
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/module/dm_verity/parameters/prefetch_cluster 524288
-
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
-
-on verity-logging
-    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
 
 # fuse mounted usbdisk daemon running as media_rw (1023)
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk

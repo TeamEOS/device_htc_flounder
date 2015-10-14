@@ -1,6 +1,6 @@
 [
   {
-    "repository": "device_htc_flounder-kernel",
-    "target_path": "device/htc/flounder-kernel"
+    "repository": "kernel_htc_flounder",
+    "target_path": "kernel/htc/flounder"
   }
 ]
